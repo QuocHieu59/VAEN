@@ -61,6 +61,7 @@ print(keras.__version__)
 tf.__version__
 
 work_dir = sys.argv[2]
+print(work_dir)
 train_file_path = sys.argv[3] #ccle.zeroone_5000_0.2.tsv
 val_file_1_path = sys.argv[4] #PANCAN.zeroone_5000_0.2.tsv
 train_latent_file = sys.argv[5] #CCLE_latent_5000_0.2.tsv
@@ -133,7 +134,7 @@ original_dim = rnaseq_df.shape[1]
 latent_dim = 100
 
 batch_size = 100
-epochs = 100
+epochs = 10
 learning_rate = 0.0005
 
 epsilon_std = 1.0
