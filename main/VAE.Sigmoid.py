@@ -56,7 +56,7 @@ import graphviz
 from keras.utils import plot_model
 from keras_tqdm import TQDMNotebookCallback
 from IPython.display import SVG
-from keras.utils.vis_utils import model_to_dot
+#from keras.utils.vis_utils import model_to_dot
 
 print(keras.__version__)
 tf.__version__
