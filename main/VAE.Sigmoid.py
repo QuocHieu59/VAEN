@@ -11,7 +11,7 @@ os.environ['KERAS_BACKEND']='tensorflow'
 
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
-from keras import backend as K
+from tensorflow.compat.v1.keras import backend as K
 
 ## obtain reproducible results - START
 os.environ['PYTHONHASHSEED'] = '0'
