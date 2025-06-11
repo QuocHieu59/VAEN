@@ -40,7 +40,7 @@ session_conf = tf.ConfigProto(intra_op_parallelism_threads=1,
 tf.set_random_seed(int(sys.argv[1]))
 
 sess = tf.Session(graph=tf.get_default_graph(), config=session_conf)
-K.set_session(sess)
+sess.__enter__()
 ## obtain reproducible results - END
 
 from keras.layers import Input, Dense, Lambda, Layer, Activation, Dropout
