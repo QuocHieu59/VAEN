@@ -16,7 +16,7 @@ import keras.backend as K
 ## obtain reproducible results - START
 os.environ['PYTHONHASHSEED'] = '0'
 # The below is necessary for starting Numpy generated random numbers
-# in a well-defined initial state.
+# in a well-defined initial state..
 #np.random.seed(40)
 
 np.random.seed(int(sys.argv[1]))
@@ -44,7 +44,7 @@ sess.__enter__()
 ## obtain reproducible results - END
 
 from keras.layers import Input, Dense, Lambda, Layer, Activation, Dropout
-from keras.layers.normalization import BatchNormalization
+from keras.layers import BatchNormalization
 from keras.models import Model
 
 from keras import metrics, optimizers
