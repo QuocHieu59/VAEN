@@ -9,7 +9,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 os.environ['KERAS_BACKEND']='tensorflow'
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from keras import backend as K
 
 ## obtain reproducible results - START
