@@ -29,7 +29,7 @@ library("modEvA")
 ### using RANK.Sigmoid as an example; 
 ### this folder can be any of RANK.Sigmoid, RANK.ReLU, ZS.Sigmoid, ZS.ReLU, Z01.Sigmoid, Z01.ReLU
 
-setwd("/kaggle/working/VAEN/RANK.Sigmoid/result.EN/dr.CCLE/02")
+setwd("/kaggle/working/VAEN/result.EN/dr.CCLE/02")
 source("/kaggle/working/VAEN/code/nested_EN.R")
 
 
