@@ -1,17 +1,9 @@
 #!/usr/bin/env Rscript
 args = commandArgs(trailingOnly=TRUE)
+start = 1
+end = 2 
+scale.factor = 1
 
-if (length(args)==0) {
-	stop("Must provide start and end\n", call.=FALSE)
-} else if (length(args)==2) {
-	start = args[1]
-	end = args[2] 
-	scale.factor = 1
-} else if (length(args)==3) {
-	start = args[1]
-	end = args[2]
-	scale.factor = as.numeric(args[3])
-} 
 print( c(start, end ) )
 
 ### for parallel running, this script can be implemented as "Rscript 01.01.CCLE.EN_GLM.R 1 10" for the VAE models 1-10, 
