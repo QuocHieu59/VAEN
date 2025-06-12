@@ -29,8 +29,8 @@ library("modEvA")
 ### using RANK.Sigmoid as an example; 
 ### this folder can be any of RANK.Sigmoid, RANK.ReLU, ZS.Sigmoid, ZS.ReLU, Z01.Sigmoid, Z01.ReLU
 
-setwd("/work/RANK.Sigmoid/result.EN/dr.CCLE/02")
-source("/work/code/nested_EN.R")
+setwd("/kaggle/working/VAEN/RANK.Sigmoid/result.EN/dr.CCLE/02")
+source("/kaggle/working/VAEN/code/nested_EN.R")
 
 
 library(parallel)
@@ -40,7 +40,7 @@ parallel.main = function(kk, train.data, Y, n_folds=10, n_train_test_folds=5, se
 }
 
 #####################################################################################
-load("/work/data/TCGA.ss.mat.RData")
+load("/kaggle/working/VAEN/DATA/TCGA.ss.mat.RData")
 #####################################################################################
 
 for(ksigmoid in start:end){
@@ -56,12 +56,12 @@ for(ksigmoid in start:end){
 
 	#####################################################################################
 
-	TCGA.pred = read.table(paste("//work/RANK.Sigmoid/result/", ksigmoid, ".TCGA.latent.tsv", sep=""), header=T, sep="\t", as.is=T)
+	TCGA.pred = read.table(paste("/kaggle/working/VAEN/result/", ksigmoid, ".TCGA.latent.tsv", sep=""), header=T, sep="\t", as.is=T)
 	TCGA.test.data = TCGA.pred[,-1]
 
 	########### Prediction
 
-	PPs = read.table(paste("/work/RANK.Sigmoid/result/",ksigmoid,".CCLE.latent.tsv", sep=""))
+	PPs = read.table(paste("/kaggle/working/VAEN/result/",ksigmoid,".CCLE.latent.tsv", sep=""))
 	original.ss.PP = rownames(PPs)
 	sapply(original.ss.PP, function(x){
 		new.u = u = strsplit(x, split="\\.")[[1]][1]
@@ -74,7 +74,7 @@ for(ksigmoid in start:end){
 
 	########### original drug data
 
-	anno = read.csv("/work/data/CCLE/CCLE_NP24.2009_Drug_data_2015.02.24.csv", as.is=T)
+	anno = read.csv("/kaggle/working/VAEN/DATA/CCLE/CCLE_NP24.2009_Drug_data_2015.02.24.csv", as.is=T)
 	drugs = sort(unique(anno$Compound))
 
 	self.prediction.mat = matrix(-9, nrow=length(unique(anno[,1])), ncol=length(drugs)+2)
