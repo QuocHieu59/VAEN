@@ -29,7 +29,7 @@ library("modEvA")
 ### using RANK.Sigmoid as an example; 
 ### this folder can be any of RANK.Sigmoid, RANK.ReLU, ZS.Sigmoid, ZS.ReLU, Z01.Sigmoid, Z01.ReLU
 
-setwd("/work/RANK.Sigmoid/result.EN/dr.CCLE/01")
+setwd("/work/RANK.Sigmoid/result.EN/dr.CCLE/02")
 source("/work/code/nested_EN.R")
 
 
