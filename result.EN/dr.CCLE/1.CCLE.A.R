@@ -13,11 +13,11 @@ anno = read.csv("/kaggle/working/VAEN/DATA/CCLE_NP24.2009_Drug_data_2015.02.24.c
 drugs = sort(unique(anno$Compound))
 #####################################################################################
 
-all.sample.size = all.in_sample_R2.mat = all.avg_CV_R2.mat = all.F1_R2.mat = matrix(0, nrow=100, ncol=length(drugs))
+all.sample.size = all.in_sample_R2.mat = all.avg_CV_R2.mat = all.F1_R2.mat = matrix(0, nrow=10, ncol=length(drugs))
 colnames(all.sample.size) = colnames(all.in_sample_R2.mat) = colnames(all.avg_CV_R2.mat) = colnames(all.F1_R2.mat) = drugs
 
 all.mat = c()
-for(ksigmoid in 1:100){
+for(ksigmoid in 1:10){
 	load(paste("01/", ksigmoid, ".CCLE.model.list.RData", sep=""))
 	for(kdrug in 1:length(drugs)){
 		drug = drugs[kdrug]
@@ -50,7 +50,7 @@ pdf("CCLE.A.ROC.pdf", width=5, height=5)
 for(k in 1:length(drugs)){
 	drug = drugs[k]
 	plot(x=all.in_sample_R2.mat[,k], y=all.avg_CV_R2.mat[,k], main=drugs[k], xlab="Self in_sample PCC", ylab="avg PCC (in_sample)", col=rep("blue",200), pch=20, cex=.6 )
-	tmp = cbind(idx = c(1:100), all.F1_R2.mat[, drug], all.in_sample_R2.mat[, drug], all.avg_CV_R2.mat[, drug] )
+	tmp = cbind(idx = c(1:10), all.F1_R2.mat[, drug], all.in_sample_R2.mat[, drug], all.avg_CV_R2.mat[, drug] )
 	tmp = tmp[order(tmp[,4], decreasing=T),]
 	idx = tmp[1:10,1]
 	points(all.in_sample_R2.mat[idx,k], all.avg_CV_R2.mat[idx,k], pch=4, col="red")
@@ -66,7 +66,7 @@ holdout.R2 = c()
 for(k in 1:length(drugs)){
 	drug = drugs[k]
 	
-	tmp = cbind(idx = c(1:100), all.F1_R2.mat[, drug], all.in_sample_R2.mat[, drug], all.avg_CV_R2.mat[, drug] )
+	tmp = cbind(idx = c(1:10), all.F1_R2.mat[, drug], all.in_sample_R2.mat[, drug], all.avg_CV_R2.mat[, drug] )
 	tmp = tmp[order(tmp[,4], decreasing=T),] ### avg_CV_R2
 	holdout.R2 = rbind(holdout.R2, c(drug, tmp[1,4]) )
 	best.index = tmp[1,1]
@@ -99,7 +99,7 @@ for(kdrug in 1:length(drugs)){
 	if(drug == "X17.AAG")drug = "17-AAG"
 	gsub("\\.", "-", drug) -> drug
 	
-	tmp = cbind(idx = c(1:100), all.F1_R2.mat[, drug], all.in_sample_R2.mat[, drug], all.avg_CV_R2.mat[, drug] )
+	tmp = cbind(idx = c(1:10), all.F1_R2.mat[, drug], all.in_sample_R2.mat[, drug], all.avg_CV_R2.mat[, drug] )
 	tmp = tmp[order(tmp[,4], decreasing=T),]
 	
 	pred.mat = c()
@@ -125,7 +125,7 @@ CCLE.pred.full.mat = c()
 for(k in 1:length(drugs)){
 	drug = drugs[k]
 	
-	tmp = cbind(idx = c(1:100), all.F1_R2.mat[, drug], all.in_sample_R2.mat[, drug], all.avg_CV_R2.mat[, drug] )
+	tmp = cbind(idx = c(1:10), all.F1_R2.mat[, drug], all.in_sample_R2.mat[, drug], all.avg_CV_R2.mat[, drug] )
 	tmp = tmp[order(tmp[,4], decreasing=T),]
 	
 	pred.mat = c()
