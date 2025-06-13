@@ -1,4 +1,4 @@
-setwd("/path/to/VAEN/result.EN/dr.CCLE/")
+setwd("/kaggle/working/VAEN/result.EN/dr.CCLE/")
 
 library("MASS")
 library("magrittr")
@@ -7,9 +7,9 @@ library("modEvA")
 library("vegan")
 
 #####################################################################################
-load("/path/to/VAEN/DATA/TCGA.ss.mat.RData")
+load("/kaggle/working/VAEN/DATA/TCGA.ss.mat.RData")
 #####################################################################################
-anno = read.csv("/path/to/VAEN/DATA/CCLE_NP24.2009_Drug_data_2015.02.24.csv", as.is=T)
+anno = read.csv("/kaggle/working/VAEN/DATA/CCLE_NP24.2009_Drug_data_2015.02.24.csv", as.is=T)
 drugs = sort(unique(anno$Compound))
 #####################################################################################
 
@@ -75,7 +75,7 @@ for(k in 1:length(drugs)){
 	model.list[[ drug ]] -> res.list
 	fit <- res.list$model
 	
-	TCGA.pred = read.table(paste("../../result/", best.index, ".TCGA.latent.tsv", sep=""), header=T, sep="\t", as.is=T)
+	TCGA.pred = read.table(paste("/kaggle/working/VAEN/result/", best.index, ".TCGA.latent.tsv", sep=""), header=T, sep="\t", as.is=T)
 	TCGA.test.data = TCGA.pred[,-1]
 	TCGA.probabilities = predict(fit, as.matrix(TCGA.test.data), s = 'lambda.min')
 	

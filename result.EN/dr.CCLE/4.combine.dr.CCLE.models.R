@@ -1,4 +1,4 @@
-setwd("/path/to/VAEN/result.EN/dr.CCLE/")
+setwd("/kaggle/working/VAEN/result.EN/dr.CCLE/")
 
 ##########################################################################
 load("CCLE.A.info.RData")
@@ -13,7 +13,7 @@ for(kdrug in 1:length(drugs)){
 	tmp = tmp[order(tmp[,4], decreasing=T),]
 	best.index = tmp[1,1]
 	
-	load( paste("/path/to/VAEN/result.EN/dr.CCLE/01/", best.index ,".CCLE.model.list.RData", sep="") )
+	load( paste("/kaggle/working/VAEN/result.EN/dr.CCLE/01/", best.index ,".CCLE.model.list.RData", sep="") )
 	model.list[[ drug ]] -> res.list
 	res.list[[ "best_index" ]] = best.index
 	dr.ccle.models[[ drug ]] = res.list
@@ -34,7 +34,7 @@ for(kdrug in 1:length(drugs)){
 	tmp = tmp[order(tmp[,4], decreasing=T),]
 	best.index = tmp[1,1]
 	
-	load( paste("/path/to/VAEN/result.EN/dr.CCLE/01S/", best.index ,".CCLE.model.list.S.RData", sep="") )
+	load( paste("/kaggle/working/VAEN/result.EN/dr.CCLE/01S/", best.index ,".CCLE.model.list.S.RData", sep="") )
 	model.list[[ drug ]] -> res.list
 	res.list[[ "best_index" ]] = best.index
 	dr.ccle.models[[ drug ]] = res.list
