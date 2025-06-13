@@ -1,23 +1,26 @@
 # VAEN
+
 A deep generative neural network based approach to impute drug response
 
 --main
-    Code and results for different preprocessing methods and VAE
+Code train VAE
 
 --DATA
-    Data required to run all codes, including the downloaded data for CCLE, GDSC, and TCGA
+Data required to run all codes, including the downloaded data for CCLE, GDSC, and TCGA
 
 --Figure
-    Code to reproduce all figures
-    
+Code to reproduce all figures
+
 --result
-    VAE results for RANK+Sigmoid
+VAE results folder
 
 --result.EN
-    VAEN results for CCLE (dr.CCLE) and GDSC (dr.GDSC). These are the imputed drug response for CCLE (cell lines), GDSC (cell lines), and TCGA (cancer samples).
-    
---MC3
-    TCGA mutation data.
-    
+VAEN results for CCLE (dr.CCLE) and GDSC (dr.GDSC). These are the imputed drug response for CCLE (cell lines), GDSC (cell lines), and TCGA (cancer samples).
+
 --code
-    Other supporting code
+Other supporting code
+01.01.CCLE.EN_GLM + nested_EN: for train VAEN
+unfactor: for produce figures
+
+--notebook
+run code in kaggle
