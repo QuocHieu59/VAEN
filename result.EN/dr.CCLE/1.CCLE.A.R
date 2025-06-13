@@ -134,7 +134,7 @@ for(k in 1:length(drugs)){
 	load(                  paste("01/", best.index ,".CCLE.model.list.RData", sep="") )
 	model.list[[ drug ]] -> res.list
 	
-	CCLE.latent = read.table(paste("../../result/", best.index, ".CCLE.latent.tsv", sep=""), header=T, sep="\t", as.is=T)
+	CCLE.latent = read.table(paste("/kaggle/working/VAEN/result/", best.index, ".CCLE.latent.tsv", sep=""), header=T, sep="\t", as.is=T)
 	CCLE.latent.data = CCLE.latent[,-1]
 	fit <- res.list$model
 	CCLE.probabilities = predict(fit, as.matrix(CCLE.latent.data), s = 'lambda.min')
