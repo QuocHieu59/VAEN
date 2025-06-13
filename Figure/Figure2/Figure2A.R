@@ -1,11 +1,11 @@
-setwd("/path/to/VAEN/Figure/Figure2")
-source("../../code/unfactor.R")
+setwd("/kaggle/working/VAEN/Figure/Figure2")
+source("/kaggle/working/VAEN/code/unfactor.R")
 
 ######################### 2A
-one.drugs.match = read.table("../../DATA/drugs.match.txt", as.is=T)
-two.drugs.match = read.table("../../DATA/drugs.match-2.txt", as.is=T, sep="\t")
+one.drugs.match = read.table("/kaggle/working/VAEN/DATA/drugs.match.txt", as.is=T)
+two.drugs.match = read.table("/kaggle/working/VAEN/DATA/drugs.match-2.txt", as.is=T, sep="\t")
 
-load("../../result.EN/dr.CCLE/dr.CCLE.A.models.RData")
+load("/kaggle/working/VAEN/result.EN/dr.CCLE/dr.CCLE.A.models.RData")
 drugs = names(dr.ccle.models)
 x = c()
 for(k in 1:length(drugs)){
@@ -21,7 +21,7 @@ for(k in 1:length(drugs)){
 colnames(x) = c("Drug", "PCC")
 
 
-load("../../result.EN/dr.GDSC/dr.GDSC.A.models.RData")
+load("/kaggle/working/VAEN/result.EN/dr.GDSC/dr.GDSC.A.models.RData")
 drugs = names(dr.gdsc.models)
 y = c()
 for(k in 1:length(drugs)){
