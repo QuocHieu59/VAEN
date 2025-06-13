@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 args = commandArgs(trailingOnly=TRUE)
 start = 1
-end = 2 
+end = 10 
 scale.factor = 1
 
 print( c(start, end ) )
