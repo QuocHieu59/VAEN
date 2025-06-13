@@ -9,7 +9,7 @@ library("vegan")
 #####################################################################################
 load("/kaggle/working/VAEN/DATA/TCGA.ss.mat.RData")
 #####################################################################################
-anno = read.csv("/kaggle/working/VAEN/DATA/CCLE_NP24.2009_Drug_data_2015.02.24.csv", as.is=T)
+anno = read.csv("/kaggle/working/VAEN/DATA/CCLE/CCLE_NP24.2009_Drug_data_2015.02.24.csv", as.is=T)
 drugs = sort(unique(anno$Compound))
 #####################################################################################
 
