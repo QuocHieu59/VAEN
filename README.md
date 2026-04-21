@@ -24,4 +24,6 @@ unfactor: for produce figures
 
 --notebook
 run code in kaggle
+
+
 S _ { \text {overall} } ( a ) = \frac { 1 } { 6 } \sum _ { d = 1 } ^ { 6 } S _ { \text {domain} } ( a ) & & ( 3 )
